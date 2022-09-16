@@ -6,6 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+/**
+ * An interface for accessing 7Mind API
+ */
 interface SevenMindApiService {
 
     /**
