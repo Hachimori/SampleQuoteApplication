@@ -4,16 +4,13 @@ import android.content.Context
 import androidx.annotation.StringRes
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import androidx.navigation.compose.rememberNavController
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.hachimori.samplequoteapplication.HiltTestActivity
 import com.github.hachimori.samplequoteapplication.R
 import com.github.hachimori.samplequoteapplication.setupMock
-import com.github.hachimori.samplequoteapplication.ui.MainActivity
 import com.github.hachimori.samplequoteapplication.ui.quote.QuoteScreen
 import com.github.hachimori.samplequoteapplication.ui.quote.QuoteViewModel
 import dagger.hilt.android.testing.BindValue
@@ -108,7 +105,6 @@ class QuoteScreenTest {
             .onNodeWithText("quote_de_1")
             .assertIsDisplayed()
     }
-
 
     private fun getText(@StringRes textRes: Int, vararg arg: Any) =
         (ApplicationProvider.getApplicationContext() as Context).resources.getString(textRes, *arg)

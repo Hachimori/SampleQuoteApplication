@@ -1,15 +1,12 @@
 package com.github.hachimori.samplequoteapplication
 
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import com.github.hachimori.samplequoteapplication.io.appmodels.Quote
 import com.github.hachimori.samplequoteapplication.ui.quote.QuoteUiState
 import com.github.hachimori.samplequoteapplication.ui.quote.QuoteViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
 
 /**
  * This mock returns;
