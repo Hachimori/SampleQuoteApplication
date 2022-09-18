@@ -7,7 +7,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
@@ -36,7 +35,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.github.hachimori.samplequoteapplication.R
 import com.github.hachimori.samplequoteapplication.io.appmodels.Quote
-
 
 sealed class Language(
     @StringRes val stringRes: Int,
@@ -83,9 +81,11 @@ fun QuoteContent(
     onGetQuote: () -> Unit
 ) {
     if (isLoading) {
-        LinearProgressIndicator(modifier = Modifier
-            .height(5.dp)
-            .fillMaxWidth())
+        LinearProgressIndicator(
+            modifier = Modifier
+                .height(5.dp)
+                .fillMaxWidth()
+        )
     }
 
     Column {
@@ -94,7 +94,8 @@ fun QuoteContent(
                 .heightIn(min = 250.dp)
                 .padding(vertical = 16.dp),
             isLoading = isLoading,
-            text = quote?.text)
+            text = quote?.text
+        )
         Column {
             Row(
                 modifier = Modifier
@@ -125,7 +126,7 @@ fun QuoteText(
     isLoading: Boolean,
     text: String?
 ) {
-    Column (modifier = modifier) {
+    Column(modifier = modifier) {
         AnimatedVisibility(
             visible = !isLoading,
             enter = fadeIn(),

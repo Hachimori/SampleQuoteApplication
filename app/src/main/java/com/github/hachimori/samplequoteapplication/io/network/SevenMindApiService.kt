@@ -3,7 +3,6 @@ package com.github.hachimori.samplequoteapplication.io.network
 import com.github.hachimori.samplequoteapplication.io.network.responsemodels.QuoteResponse
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -20,7 +19,8 @@ interface SevenMindApiService {
      */
     @GET("mindful")
     suspend fun getQuote(
-        @Query("lang") lang: String, @Query("uid") uid: String
+        @Query("lang") lang: String,
+        @Query("uid") uid: String
     ): Response<QuoteResponse>
 
     companion object {

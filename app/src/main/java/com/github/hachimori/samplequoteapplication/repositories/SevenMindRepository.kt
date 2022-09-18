@@ -13,7 +13,7 @@ import javax.inject.Singleton
 class SevenMindRepository @Inject constructor(
     private val sevenMindApiService: SevenMindApiService
 ) {
-    
+
     /**
      * Get quote
      *
