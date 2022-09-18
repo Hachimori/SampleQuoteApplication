@@ -19,19 +19,19 @@ class QuoteViewModel @Inject constructor(
     private val getQuoteUsecase: GetQuoteUsecase
 ) : ViewModel() {
 
-    var uiState by mutableStateOf(QuoteUiState())
-        private set
+    val uiState = mutableStateOf(QuoteUiState())
+
 
     fun getQuote(lang: String) {
         viewModelScope.launch {
-            uiState = uiState.copy(isLoading = true, hasError = false)
+            uiState.value = uiState.value.copy(isLoading = true, hasError = false)
 
-            uiState = try {
+            uiState.value = try {
                 val quote = getQuoteUsecase.getQuote(lang).single()
-                uiState.copy(quote = quote, isLoading = false)
+                uiState.value.copy(quote = quote, isLoading = false)
             } catch (e: Exception) {
                 Timber.e("Failed in retrieving quote: ${e.message}")
-                uiState.copy(isLoading = false, hasError = true)
+                uiState.value.copy(isLoading = false, hasError = true)
             }
         }
     }
