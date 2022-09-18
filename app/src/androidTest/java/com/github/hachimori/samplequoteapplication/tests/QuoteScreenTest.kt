@@ -54,6 +54,11 @@ class QuoteScreenTest {
             QuoteScreen()
         }
 
+        // Check initial English quote
+        composeTestRule
+            .onNodeWithText("quote_en_0")
+            .assertIsDisplayed()
+
         // Get English quote
         composeTestRule
             .onNodeWithText(getText(R.string.get_a_new_quote))
@@ -61,7 +66,7 @@ class QuoteScreenTest {
 
         // Check English quote
         composeTestRule
-            .onNodeWithText("quote_en_0")
+            .onNodeWithText("quote_en_1")
             .assertIsDisplayed()
 
         // Get another English quote
@@ -71,7 +76,7 @@ class QuoteScreenTest {
 
         // Check 2nd English quote
         composeTestRule
-            .onNodeWithText("quote_en_1")
+            .onNodeWithText("quote_en_2")
             .assertIsDisplayed()
 
         // Switch language to German

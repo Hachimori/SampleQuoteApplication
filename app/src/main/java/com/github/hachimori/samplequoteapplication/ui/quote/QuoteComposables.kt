@@ -22,6 +22,7 @@ import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -52,6 +53,13 @@ fun QuoteScreen() {
     val quoteViewModel = hiltViewModel<QuoteViewModel>()
     var lang by remember { mutableStateOf(Language.English() as Language) }
     val uiState = quoteViewModel.uiState.value
+
+    if (uiState.quote == null) {
+        // Load initial quote on startup
+        LaunchedEffect(Unit) {
+            quoteViewModel.getQuote(lang.code)
+        }
+    }
 
     QuoteContent(
         quote = uiState.quote,
