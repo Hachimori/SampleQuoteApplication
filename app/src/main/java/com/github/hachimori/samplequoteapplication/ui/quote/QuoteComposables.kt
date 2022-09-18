@@ -51,7 +51,7 @@ sealed class Language(
 fun QuoteScreen() {
     val quoteViewModel = hiltViewModel<QuoteViewModel>()
     var lang by remember { mutableStateOf(Language.English() as Language) }
-    val uiState = quoteViewModel.uiState
+    val uiState = quoteViewModel.uiState.value
 
     QuoteContent(
         quote = uiState.quote,
