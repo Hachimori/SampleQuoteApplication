@@ -13,9 +13,9 @@ import org.mockito.Mockito.mock
 
 /**
  * This mock returns;
- *   - Quote(text="quote_en_0") for the 1st getQuote("en")
- *   - Quote(text="quote_en_1") for the 2nd getQuote("en")
- *   - Quote(text="quote_en_2") for the 3rd getQuote("en")
+ *   - QuoteUiState(Quote(text="quote_en_0"), isLoading = false, hasError = false) for the 1st getQuote("en")
+ *   - QuoteUiState(Quote(text="quote_en_1"), isLoading = false, hasError = false) for the 2nd getQuote("en")
+ *   - QuoteUiState(Quote(text="quote_en_2"), isLoading = false, hasError = false) for the 3rd getQuote("en")
  *   - ... and so on
  *
  *   - and the same goes to getQuote("de")
